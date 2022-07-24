@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.domain.*;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
-import ru.netology.repository.ProductRepository;
+
 
 public class ProductRepositoryTest {
     Product book1 = new Book(1, "book1", 200, "author1");

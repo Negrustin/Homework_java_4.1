@@ -1,5 +1,7 @@
 package ru.netology.domain;
 
+import ru.netology.repository.ProductRepository;
+
 public class Product {
     protected int id;
     protected String name;
@@ -35,5 +37,13 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public boolean matches(String search) {
+        if (getName().contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
