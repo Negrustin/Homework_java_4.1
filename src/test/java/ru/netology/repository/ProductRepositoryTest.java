@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.domain.*;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
+import ru.netology.exceptions.AlreadyExistsException;
 import ru.netology.exceptions.NotFoundException;
 import ru.netology.repository.ProductRepository;
 
@@ -82,6 +83,17 @@ void emptyProductRepository(){
         });
     }
 
+    @Test
+    public void saveAlreadyAddedItem(){
+        ProductRepository repo = new ProductRepository();
 
+        repo.save(book1);
+        repo.save(book2);
+        repo.save(smartphone1);
+
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            repo.save(book1);
+        });
+    }
 
 }
